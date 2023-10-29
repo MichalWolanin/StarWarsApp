@@ -1,0 +1,10 @@
+<div class="app-characters">
+  <div class="app-characters__characters-column">
+    <h1>Star Wars</h1>
+      <div class="mat-card">
+        <app-character *ngFor="let character of characters | async"
+                       [character]="character"
+        ></app-character>
+      </div>
+  </div>
+</div>
