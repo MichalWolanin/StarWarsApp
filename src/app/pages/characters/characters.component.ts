@@ -4,7 +4,6 @@ import {Observable} from "rxjs";
 import { Character } from "../../models/character.interface";
 import {CharacterComponent} from "../../components/character/character.component";
 import {CharacterService} from "../../services/character.service";
-import { HttpClientModule } from "@angular/common/http";
 
 @Component({
   selector: 'app-characters',
@@ -12,15 +11,11 @@ import { HttpClientModule } from "@angular/common/http";
   imports: [CommonModule, CharacterComponent],
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.scss'],
-  providers: [HttpClientModule],
 })
-export class CharactersComponent implements OnInit {
+export class CharactersComponent {
+  characters$ = this.characterService.getCharacters();
 
   characters?: Observable<Character[]>;
 
   constructor(private characterService: CharacterService) {}
-
-  ngOnInit(): void {
-   this.characterService.getCharacters();
-  }
 }
