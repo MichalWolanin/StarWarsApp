@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {Observable} from "rxjs";
 import { Character } from "../../models/character.interface";
 import {CharacterComponent} from "../../components/character/character.component";
-import {CharacterService} from "../../services/character.service";
+import {DataService} from "../../services/data.service";
 
 @Component({
   selector: 'app-characters',
@@ -13,9 +13,9 @@ import {CharacterService} from "../../services/character.service";
   styleUrls: ['./characters.component.scss'],
 })
 export class CharactersComponent {
-  characters$ = this.characterService.getCharacters();
+  characters$ = this.dataService.getCharacters();
 
   characters?: Observable<Character[]>;
 
-  constructor(private characterService: CharacterService) {}
+  constructor(private dataService: DataService) {}
 }

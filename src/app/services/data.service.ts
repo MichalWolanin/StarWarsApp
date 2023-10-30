@@ -7,12 +7,17 @@ import { Character } from "../models/character.interface";
 @Injectable({
   providedIn: 'root',
 })
-export class CharacterService {
+export class DataService {
   private API_URL = environment.API_URL;
 
   constructor(private http: HttpClient) {}
 
+  getCategories(): Observable<any> {
+    return this.http.get<any>(this.API_URL);
+  }
+
   getCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>(this.API_URL);
+    const peopleURL = `${this.API_URL}/people`;
+    return this.http.get<Character[]>(peopleURL);
   }
 }
