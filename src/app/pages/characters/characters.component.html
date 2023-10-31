@@ -1,9 +1,7 @@
 <div class="app-characters">
   <div class="app-characters__characters-column">
-    <ng-container *ngIf="characters$ | async as characterData">
-      <div class="mat-card" *ngFor="let character of characterData| async | keyvalue">
-        <app-character [character]="character.value"></app-character>
-      </div>
-    </ng-container>
+    <div class="mat-card" *ngFor="let character of (characters$ | async)">
+      <app-character [character]="character"></app-character>
+    </div>
   </div>
 </div>

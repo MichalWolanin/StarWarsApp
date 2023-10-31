@@ -12,12 +12,8 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  getCategories(): Observable<any> {
-    return this.http.get<any>(this.API_URL);
-  }
-
   getCharacters(): Observable<Character[]> {
-    const peopleURL = `${this.API_URL}/people`;
+    const peopleURL = `${this.API_URL}/people/1`;
     return this.http.get<Character[]>(peopleURL);
   }
 }

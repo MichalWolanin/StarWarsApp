@@ -1,4 +1,4 @@
-<div *ngFor="let character of characters | async">
+<div *ngIf="character">
   <div> {{ character.name }}</div>
   <div> {{ character.height }}</div>
   <div> {{ character.mass }}</div>

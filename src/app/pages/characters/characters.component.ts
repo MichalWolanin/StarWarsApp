@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Observable} from "rxjs";
-import { Character } from "../../models/character.interface";
 import {CharacterComponent} from "../../components/character/character.component";
 import {DataService} from "../../services/data.service";
 
@@ -13,9 +11,7 @@ import {DataService} from "../../services/data.service";
   styleUrls: ['./characters.component.scss'],
 })
 export class CharactersComponent {
-  characters$: Observable<Character[]>;
+  characters$ = this.dataService.getCharacters();
 
-  constructor(private dataService: DataService) {
-    this.characters$ = this.dataService.getCharacters();
-  }
+  constructor(private dataService: DataService) {}
 }

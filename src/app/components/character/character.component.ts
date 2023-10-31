@@ -12,5 +12,4 @@ import {Character} from "../../models/character.interface";
 })
 export class CharacterComponent {
   @Input() character!: Character;
-  characters?: Observable<Character[]>;
 }
