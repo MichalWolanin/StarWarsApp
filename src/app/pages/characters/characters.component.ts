@@ -13,9 +13,9 @@ import {DataService} from "../../services/data.service";
   styleUrls: ['./characters.component.scss'],
 })
 export class CharactersComponent {
-  characters$ = this.dataService.getCharacters();
+  characters$: Observable<Character[]>;
 
-  characters?: Observable<Character[]>;
-
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    this.characters$ = this.dataService.getCharacters();
+  }
 }
